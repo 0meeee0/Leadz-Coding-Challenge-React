@@ -16,7 +16,7 @@ export default function Nav() {
       <div>
         <a
           href="/add-book"
-          className="flex items-center px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-700 transition"
+          className="flex items-center px-4 py-2 text-red-500 border-red-500 border-2 rounded-md hover:bg-red-700 hover:text-white transition"
         >
           <PlusIcon className="w-5 h-5 mr-2" />
           Add Book

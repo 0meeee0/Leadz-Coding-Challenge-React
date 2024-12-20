@@ -15,13 +15,12 @@ export default function Nav() {
         </Link>
       </div>
       <div>
-        <a
-          href="/add-book"
+        <Link to="/add-book"
           className="flex items-center px-4 py-2 text-red-500 border-red-500 border-2 rounded-md hover:bg-red-700 hover:text-white transition"
         >
           <PlusIcon className="w-5 h-5 mr-2" />
           Add Book
-        </a>
+        </Link>
       </div>
     </nav>
   );

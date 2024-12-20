@@ -29,7 +29,7 @@ export default function BookList() {
       </div>
       <div className="flex flex-wrap justify-center gap-6">
 
-      {books && books.map((book) => <BookCard {...book}/>)}
+      {books && books.map((book) => <BookCard key={book.id} {...book}/>)}
       </div>
     </>
   );

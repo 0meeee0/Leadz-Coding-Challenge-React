@@ -4,6 +4,7 @@ import Nav from "./components/nav/Nav";
 import BookCard from "./components/books/BookCard";
 import BookDetails from "./components/books/BookDetails";
 import BookList from "./components/books/BookList";
+import AddBook from "./components/books/AddBookForm";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<BookList />} />
+        <Route path="/add-book" element={<AddBook />} />
         <Route path="/book-details/:id" element={<BookDetails />} />
       </Routes>
     </Router>

@@ -1,17 +1,18 @@
 import { PlusIcon } from "@heroicons/react/16/solid";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
     <nav className="nav flex items-center justify-around p-4 bg-gray-100 shadow-md">
       <div className="w-16">
-        <a href="/">
+        <Link to="/">
           <img
             className="rounded-3xl"
             src="img.webp"
             alt="Logo"
           />
-        </a>
+        </Link>
       </div>
       <div>
         <a

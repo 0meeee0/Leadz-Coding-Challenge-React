@@ -9,7 +9,7 @@ export default function Nav() {
         <Link to="/">
           <img
             className="rounded-3xl"
-            src="img.webp"
+            src="/img.webp"
             alt="Logo"
           />
         </Link>

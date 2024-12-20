@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import BookCard from "./BookCard";
 import axios from "axios";
+import Loading from "../loading/Loading";
 
 export default function BookList() {
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState([true])
   useEffect(()=>{
     const fetchBooks = async()=>{
         try{
@@ -12,11 +14,14 @@ export default function BookList() {
             console.log(res.data.member)
         }catch(err){
             console.error(err)
-        } 
+        }finally{
+            setLoading(false)
+        }
     }
     fetchBooks()
   },[])
 
+  if(loading)return <Loading/>
   return (
     <>
       <div className="flex justify-center py-7">

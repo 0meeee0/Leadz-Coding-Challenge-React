@@ -12,7 +12,7 @@ export default function BookList() {
             console.log(res.data.member)
         }catch(err){
             console.error(err)
-        }
+        } 
     }
     fetchBooks()
   },[])

@@ -13,14 +13,14 @@ export default function BookDetails() {
 
   return (
     <>
-      <div className="flex justify-center pt-20">
-        <div className="flex gap-6 items-start">
+      <div className="flex justify-center pt-20 px-4 sm:px-8 md:px-16">
+        <div className="flex gap-6 items-start flex-col md:flex-row">
           <img
             src="/book.png"
             alt="Book cover"
-            className="object-cover rounded-lg w-72 h-72"
+            className="object-cover rounded-lg w-72 h-72 mb-4 md:mb-0"
           />
-          <div className="flex flex-col w-80">
+          <div className="flex flex-col w-full md:w-80">
             <h3 className="text-xl font-medium text-gray-700 mt-2">
               By {book.author}
             </h3>

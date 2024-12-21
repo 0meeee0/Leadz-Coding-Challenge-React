@@ -1,16 +1,17 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import useAuthorName from "../../hooks/useAuthorName";
+import React from "react";
+import useAddBookForm from "../../hooks/useAddBookForm";
 
 export default function AddBookForm() {
-  const {authors} = useAuthorName()
+  const { authors, formData, handleChange, handleSubmit } = useAddBookForm();
+
   return (
     <div className="flex items-center justify-center h-screen bg-cover bg-center pt-52">
       <div className="relative bg-white/90 p-8 rounded-lg shadow-lg w-full max-w-lg">
         <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">
           Add a Book
         </h1>
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="block text-gray-700 font-medium mb-2">
               Title
@@ -18,41 +19,41 @@ export default function AddBookForm() {
             <input
               type="text"
               name="title"
+              value={formData.title}
+              onChange={handleChange}
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
               placeholder="Book Title"
               required
             />
           </div>
-
+          <div>
+            <label className="block text-gray-700 font-medium mb-2">
+              Genre
+            </label>
+            <input
+              type="text"
+              name="genre"
+              value={formData.genre}
+              onChange={handleChange}
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
+              placeholder="Book Genre"
+              required
+            />
+          </div>
           <div>
             <label className="block text-gray-700 font-medium mb-2">
               Description
             </label>
             <textarea
               name="description"
+              value={formData.description}
+              onChange={handleChange}
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
               placeholder="Book Description"
               rows="4"
               required
             ></textarea>
           </div>
-
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Rating
-            </label>
-            <input
-              type="number"
-              name="rating"
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
-              placeholder="Rating (0-5)"
-              min="0"
-              max="5"
-              step="0.1"
-              required
-            />
-          </div>
-
           <div>
             <label className="block text-gray-700 font-medium mb-2">
               Publish Date
@@ -60,24 +61,27 @@ export default function AddBookForm() {
             <input
               type="date"
               name="publishDate"
+              value={formData.publishDate}
+              onChange={handleChange}
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
               required
             />
           </div>
-
           <div>
             <label className="block text-gray-700 font-medium mb-2">
               Author
             </label>
             <select
-              onChange={(e) => console.log(e.target.value)}
+              name="author"
+              value={formData.author}
+              onChange={handleChange}
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
-              name=""
-              id=""
+              required
             >
+              <option value="">Select an author</option>
               {authors &&
                 authors.map((author) => (
-                  <option key={author.id} value={author.id}>
+                  <option key={author.id} value={`/api/authors/${author.id}`}>
                     {author.firstName} {author.lastName}
                   </option>
                 ))}

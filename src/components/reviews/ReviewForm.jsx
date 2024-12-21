@@ -3,7 +3,7 @@ import useReviewForm from "../../hooks/useReviewForm";
 
 export default function ReviewForm({bookId}) {
     const {review, handleChange, handleSubmit} = useReviewForm(bookId)
-    console.log(review)
+    // console.log(review)
   return (
     <div className="flex justify-center py-10">
       <div className="w-full max-w-lg">

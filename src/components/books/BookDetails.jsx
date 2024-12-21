@@ -3,12 +3,18 @@ import ReviewForm from "../reviews/ReviewForm";
 import { useParams } from "react-router-dom";
 import { useBook } from "../../hooks/useBook";
 import Loading from "../loading/Loading";
+import Review from "../reviews/Review";
 
 export default function BookDetails() {
   const { id } = useParams();
   const { book, loading, error } = useBook(id);
 
-  if (loading) return <div><Loading/></div>;
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   if (error) return <p>Error: {error.message}</p>;
 
   return (
@@ -25,7 +31,9 @@ export default function BookDetails() {
               By {book.authorName}
             </h3>
             <h1 className="text-3xl font-semibold">{book.title}</h1>
-            <span className="text-lg text-yellow-500 mt-2">{book.rating}</span>
+            <span className="text-lg text-yellow-500 mt-2">
+              {book.rating}
+            </span>
             <p className="text-gray-600 mt-4">{book.description}</p>
             <hr className="my-4 border-t-2 border-gray-300" />
             <h4 className="text-lg font-semibold text-gray-700">
@@ -34,7 +42,8 @@ export default function BookDetails() {
           </div>
         </div>
       </div>
-      <ReviewForm bookId={book.id}/>
+    <Review book={book} />
+      <ReviewForm bookId={book.id} />
     </>
   );
 }

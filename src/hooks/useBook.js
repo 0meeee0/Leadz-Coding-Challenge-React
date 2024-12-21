@@ -1,17 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
-export function useBook(id) {
+export const useBook = (id) => {
   const [book, setBook] = useState(null);
+  const [authorName, setAuthorName] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const fetchBook = async () => {
-    setLoading(true);
-    setError(null);
     try {
+      setLoading(true);
       const res = await axios.get(`http://localhost:8000/api/books/${id}`);
-      setBook(res.data);
+      const bookData = res.data;
+      const authorRes = await axios.get(
+        `http://localhost:8000${bookData.author}`
+      );
+      setAuthorName(`${authorRes.data.firstName} ${authorRes.data.lastName}`);
+
+      setBook({
+        ...bookData,
+        authorName: `${authorRes.data.firstName} ${authorRes.data.lastName}`,
+      });
     } catch (err) {
       setError(err);
     } finally {
@@ -23,5 +32,5 @@ export function useBook(id) {
     if (id) fetchBook();
   }, [id]);
 
-  return { book, loading, error };
-}
+  return { book, authorName, loading, error };
+};

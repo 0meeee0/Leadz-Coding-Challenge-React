@@ -22,7 +22,7 @@ export default function BookDetails() {
           />
           <div className="flex flex-col w-full md:w-80">
             <h3 className="text-xl font-medium text-gray-700 mt-2">
-              By {book.author}
+              By {book.authorName}
             </h3>
             <h1 className="text-3xl font-semibold">{book.title}</h1>
             <span className="text-lg text-yellow-500 mt-2">{book.rating}</span>

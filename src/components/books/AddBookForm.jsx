@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import useAuthorName from "../../hooks/useAuthorName";
 
 export default function AddBookForm() {
+  const {authors} = useAuthorName()
   return (
     <div className="flex items-center justify-center h-screen bg-cover bg-center pt-52">
-
       <div className="relative bg-white/90 p-8 rounded-lg shadow-lg w-full max-w-lg">
         <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">
           Add a Book
@@ -67,15 +69,20 @@ export default function AddBookForm() {
             <label className="block text-gray-700 font-medium mb-2">
               Author
             </label>
-            <input
-              type="text"
-              name="author"
+            <select
+              onChange={(e) => console.log(e.target.value)}
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
-              placeholder="Author Name"
-              required
-            />
+              name=""
+              id=""
+            >
+              {authors &&
+                authors.map((author) => (
+                  <option key={author.id} value={author.id}>
+                    {author.firstName} {author.lastName}
+                  </option>
+                ))}
+            </select>
           </div>
-
           <button
             type="submit"
             className="w-full py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition duration-200"

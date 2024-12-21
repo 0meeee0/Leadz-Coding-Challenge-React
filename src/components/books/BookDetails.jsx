@@ -34,7 +34,7 @@ export default function BookDetails() {
           </div>
         </div>
       </div>
-      <ReviewForm />
+      <ReviewForm bookId={book.id}/>
     </>
   );
 }

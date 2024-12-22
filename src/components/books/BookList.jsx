@@ -22,9 +22,14 @@ export default function BookList() {
     }
     fetchBooks()
   },[])
-  const filteredBooks = books.filter(
-    (book) => book.title.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredBooks = books.filter((book) => {
+    if (search.startsWith("#")) {
+        return book.genre.toLowerCase().includes(search.slice(1).toLowerCase());
+    }
+    
+    return book.title.toLowerCase().includes(search.toLowerCase());
+  })
+
   if(loading)return <Loading/>
   return (
     <>

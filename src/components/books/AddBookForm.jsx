@@ -13,7 +13,7 @@ export default function AddBookForm() {
         </h1>
         <form className="space-y-4" data-testid="add-book-form" onSubmit={handleSubmit}>
           <div>
-            <label for="title" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="title" className="block text-gray-700 font-medium mb-2">
               Title
             </label>
             <input
@@ -28,7 +28,7 @@ export default function AddBookForm() {
             />
           </div>
           <div>
-            <label for="genre" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="genre" className="block text-gray-700 font-medium mb-2">
               Genre
             </label>
             <input
@@ -43,7 +43,7 @@ export default function AddBookForm() {
             />
           </div>
           <div>
-            <label for="description" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="description" className="block text-gray-700 font-medium mb-2">
               Description
             </label>
             <textarea
@@ -58,7 +58,7 @@ export default function AddBookForm() {
             ></textarea>
           </div>
           <div>
-            <label for="publishDate" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="publishDate" className="block text-gray-700 font-medium mb-2">
               Publish Date
             </label>
             <input
@@ -72,7 +72,7 @@ export default function AddBookForm() {
             />
           </div>
           <div>
-            <label for="author" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="author" className="block text-gray-700 font-medium mb-2">
               Author
             </label>
             <select

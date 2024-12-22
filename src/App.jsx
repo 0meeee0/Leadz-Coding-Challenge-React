@@ -5,6 +5,7 @@ import BookCard from "./components/books/BookCard";
 import BookDetails from "./components/books/BookDetails";
 import BookList from "./components/books/BookList";
 import AddBook from "./components/books/AddBookForm";
+import NotFound from "./components/page/NotFound";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<BookList />} />
         <Route path="/add-book" element={<AddBook />} />
         <Route path="/book-details/:id" element={<BookDetails />} />
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
     </Router>
   );

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useBook } from "../../hooks/useBook";
 import Loading from "../loading/Loading";
 import Review from "../reviews/Review";
+import NotFound from "../page/NotFound";
 
 export default function BookDetails() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ export default function BookDetails() {
         <Loading />
       </div>
     );
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <div><NotFound/></div>
 
   return (
     <>

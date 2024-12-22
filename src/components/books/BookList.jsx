@@ -30,8 +30,11 @@ export default function BookList() {
     <>
       <SearchBar search={search} setSearch={setSearch} />
       <div className="flex flex-wrap justify-center gap-6">
-        {filteredBooks &&
-          filteredBooks.map((book) => <BookCard key={book.id} {...book} />)}
+        {filteredBooks.length > 0 ? (
+          filteredBooks.map((book) => <BookCard key={book.id} {...book} />)
+        ) : (
+          <p className="text-center text-xl">No books found</p>
+        )}
       </div>
     </>
   );

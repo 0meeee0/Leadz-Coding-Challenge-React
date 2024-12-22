@@ -11,14 +11,15 @@ export default function AddBookForm() {
         <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">
           Add a Book
         </h1>
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        <form className="space-y-4" data-testid="add-book-form" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label for="title" className="block text-gray-700 font-medium mb-2">
               Title
             </label>
             <input
               type="text"
               name="title"
+              id="title"
               value={formData.title}
               onChange={handleChange}
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
@@ -27,12 +28,13 @@ export default function AddBookForm() {
             />
           </div>
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label for="genre" className="block text-gray-700 font-medium mb-2">
               Genre
             </label>
             <input
               type="text"
               name="genre"
+              id="genre"
               value={formData.genre}
               onChange={handleChange}
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
@@ -41,11 +43,12 @@ export default function AddBookForm() {
             />
           </div>
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label for="description" className="block text-gray-700 font-medium mb-2">
               Description
             </label>
             <textarea
               name="description"
+              id="description"
               value={formData.description}
               onChange={handleChange}
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
@@ -55,12 +58,13 @@ export default function AddBookForm() {
             ></textarea>
           </div>
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label for="publishDate" className="block text-gray-700 font-medium mb-2">
               Publish Date
             </label>
             <input
               type="date"
               name="publishDate"
+              id="publishDate"
               value={formData.publishDate}
               onChange={handleChange}
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
@@ -68,11 +72,12 @@ export default function AddBookForm() {
             />
           </div>
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label for="author" className="block text-gray-700 font-medium mb-2">
               Author
             </label>
             <select
               name="author"
+              id="author"
               value={formData.author}
               onChange={handleChange}
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"

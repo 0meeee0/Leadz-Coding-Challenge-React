@@ -25,9 +25,12 @@ export default function BookList() {
   const filteredBooks = books.filter((book) => {
     if (search.startsWith("#")) {
         return book.genre.toLowerCase().includes(search.slice(1).toLowerCase());
+    }else if (search.startsWith("@")){
+        return (
+            book.author.firstName.toLowerCase().includes(search.slice(1))
+        )
     }
-    
-    return book.title.toLowerCase().includes(search.toLowerCase());
+      return book.title.toLowerCase().includes(search.toLowerCase());
   })
 
   if(loading)return <Loading/>

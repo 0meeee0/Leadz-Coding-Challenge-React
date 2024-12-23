@@ -13,7 +13,9 @@ export default function BookCard(book) {
           <div className="ml-">
             <h3 className="font-semibold text-xl mt-10">{book.title}</h3>
             <p className="text-slate-700">{book.genre}</p>
-            <span>{book.rating}</span>
+            <span className="text-slate-800">
+              {book.author.firstName} {book.author.lastName}
+            </span>
           </div>
         </Link>
       </div>

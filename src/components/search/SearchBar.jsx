@@ -6,10 +6,10 @@ export default function SearchBar({ search, setSearch }) {
       <h1 className="text-5xl pt-7">Welcome to our collection</h1>
       <input
         type="text"
-        placeholder="Search by Title or By #Genre"
+        placeholder="Search by Title, #Genre, or @Author"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="mt-4 p-2 border rounded"
+        className="mt-4 p-2 border rounded w-80"
       />
     </div>
   );
